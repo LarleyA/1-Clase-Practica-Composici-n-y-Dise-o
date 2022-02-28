@@ -1,0 +1,118 @@
+$colorFondo:rgb(151, 76, 88);
+$colorFondoSec: rgb(192, 144, 168);
+$colorFondoTer: rgb(160, 174, 218);
+$colorTexto: rgb(59, 6, 59);
+$colorTextoSec: rgb(241, 223, 241);
+$fontSizeBase: 10px;
+$colorFondocuar: rgb(189, 96, 135);
+
+//Declaracion de mixin
+@mixin setFlex ($flexDir, $alig) {
+    display: flex;
+        flex-direction: $flexDir; 
+        flex-wrap: wrap;
+        justify-content: $alig; 
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    font-size: $fontSizeBase;
+}
+
+header{
+    background-color: $colorFondoTer;
+    h1{
+        color: $colorTexto;
+        font-size: $fontSizeBase *4;
+        text-align: center;
+    }
+}       
+
+
+.mainMenu{
+    background-color: $colorFondocuar;
+    ul{
+        @include setFlex(row, space-around );
+
+        a{
+            color: $colorTextoSec;
+            font-size: 3rem;
+            &:hover{
+                color: $colorTexto;
+            }
+        }
+    } }
+
+.sectionMain{background-color: rgb(162, 207, 198);
+    color: rgb(223, 64, 170);
+  
+    display:  grid;
+    grid-template-areas: "titulo menuSeccion"
+                         "descripcion  imagenDetalle"
+                         "menuDetalle  menuDetalle"; margin-top:3% ;
+
+.titDet{
+grid-area: titulo;
+margin-top:3% ; margin-left: 8%; color: $colorTexto;
+}
+
+    .subMenu{
+        grid-area: menuSeccion; margin-top:3% ;
+        
+        @include setFlex(row, space-around );
+       
+       
+        li{padding: irem; 
+            a{
+                color: $colorTexto;
+                font-size: 1.5rem;
+                display: flex;
+                
+                  
+                //definiendo estilos con psudo clases usando la identificacion.
+                &:hover{
+                    color: $colorFondoTer;
+            }
+            
+            }
+        }
+        
+    }
+    .dsp{ 
+    
+    p{ text-align: left; 
+        width: 40%;
+        margin-left: 10%;
+        margin-top: 5%;
+
+    }}
+
+    .imagenDsp{ 
+        grid-area: imagenDetalle;
+
+    }
+    .menuDet{
+        grid-area: menuDetalle;
+        @include setFlex(row, space-around );
+        color: $colorTexto;
+        font-size: 2.5rem;
+        justify-content: center;
+
+        
+        
+     .li1{margin-left: 30px;
+          margin-right: 40px;
+          :hover{color: rgb(247, 29, 112);}}
+     .li2{margin-left: 30px;
+         margin-right: 40px;
+          :hover{color: rgb(247, 29, 112);}
+           }
+    }
+}   
+
